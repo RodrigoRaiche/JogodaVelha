@@ -1,0 +1,32 @@
+div{
+  display: flex; 
+  flex-direction: column; 
+  background-color: cadetblue;
+}
+
+table{
+    align-items: center;
+}
+
+tr{
+    height: 70px;
+}
+
+td{
+    font-size: 30px;
+    text-align: center;
+    border: 1px solid white;
+    
+}
+
+p{
+    align-items: center;
+    
+}
+
+button{
+    border-radius: 30px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+}
