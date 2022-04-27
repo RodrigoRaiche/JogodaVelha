@@ -1,24 +1,25 @@
-<div class="modal-dialog modal-dialog-centered">
-    <p>Jogador atual: {{jogadores[0]}}</p>
-    <table class="table align-middle table-dark table-bordered ">
+<div class="shadow-lg p-3 mb-5 bg-success p-2 text-white bg-opacity-75 rounded">
+    <h2>Jogo da velha</h2>
+    <p>Jogador atual: {{jogadorAtual}}</p>
+    <table  class="table align-middle table-dark table-bordered ">
         <tbody>
-            <tr>
-                <td (click)="jogar(0, 0)">{{tabuleiro[0][0]}}</td>
-                <td (click)="jogar(0, 1)">{{tabuleiro[0][1]}}</td>
-                <td (click)="jogar(0, 2)">{{tabuleiro[0][2]}}</td>
+            <tr >
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[0][0]}"  (click)="jogar(0, 0)">{{tabuleiro[0][0]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[0][1]}" (click)="jogar(0, 1)">{{tabuleiro[0][1]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[0][2]}" (click)="jogar(0, 2)">{{tabuleiro[0][2]}}</td>
             </tr>
             <tr>
-                <td (click)="jogar(1, 0)">{{tabuleiro[1][0]}}</td>
-                <td (click)="jogar(1, 1)">{{tabuleiro[1][1]}}</td>
-                <td (click)="jogar(1, 2)">{{tabuleiro[1][2]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[1][0]}" (click)="jogar(1, 0)">{{tabuleiro[1][0]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[1][1]}" (click)="jogar(1, 1)">{{tabuleiro[1][1]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[1][2]}" (click)="jogar(1, 2)">{{tabuleiro[1][2]}}</td>
             </tr>
             <tr>
-                <td (click)="jogar(2, 0)">{{tabuleiro[2][0]}}</td>
-                <td (click)="jogar(2, 1)">{{tabuleiro[2][1]}}</td>
-                <td (click)="jogar(2, 2)">{{tabuleiro[2][2]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[2][0]}" (click)="jogar(2, 0)">{{tabuleiro[2][0]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[2][1]}" (click)="jogar(2, 1)">{{tabuleiro[2][1]}}</td>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[2][2]}" (click)="jogar(2, 2)">{{tabuleiro[2][2]}}</td>
             </tr>
         </tbody>
     </table>
-    <p>{{resultado}}</p>
-    <button>Novo Jogo</button>
+    <p id=resultado>{{resultado}}</p>
+    <button (click)="clear()">Novo Jogo</button>
 </div>
