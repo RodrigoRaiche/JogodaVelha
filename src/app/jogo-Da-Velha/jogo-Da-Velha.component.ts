@@ -32,29 +32,22 @@ export class JogoDaVelhaComponent implements OnInit {
   seconds: any;
   source = timer(0, 1000);
   clock: any;
+  time: any
+  intervalId: any;
 
   constructor() { }
 
-  receberSecond(valor: string) {
-    if (valor === '0') {
-      this.inicializarTabuleiro();
-    }
-
-  }
-
+  
   ngOnInit(): void {
     this.obtersecond();
     this.inicializarTabuleiro();
   }
 
   ngDoCheck() {
-    console.log(this.seconds)
     if (this.seconds === 0) {
       this.inicializarTabuleiro();
     }
   }
-
-
 
   public jogar(x: number, y: number) {
     if (this.tabuleiro[x][y] == '' && this.finalizaJogo == false) {
@@ -80,6 +73,7 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   private inicializarTabuleiro(): void {
+    this.now = null;
     this.resultado = '';
     this.ganhador = false;
     this.qtdjogadas = 0;
@@ -206,7 +200,7 @@ export class JogoDaVelhaComponent implements OnInit {
   }
 
   private obtersecond() {
-
+   
     this.clock = this.source.subscribe(t => {
       this.now = new Date();
       this.end = new Date('01/01/' + (this.now.getFullYear() + 1) + ' 00:00');
