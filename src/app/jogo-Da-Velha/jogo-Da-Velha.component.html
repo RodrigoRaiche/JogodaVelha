@@ -1,11 +1,11 @@
-<div class="shadow-lg p-3 mb-5 bg-success p-2 text-white bg-opacity-75 rounded">
+<div  class="shadow-lg p-3 mb-5 bg-success p-2 text-white bg-opacity-75 rounded">
     <h2>Jogo da velha</h2>
     <p>Jogador atual: {{jogadorAtual}}</p>
-    <app-timer (secondsSaida)="receberSecond($event)"></app-timer>
-    <table  class="table align-middle table-dark table-bordered ">
+    <p id="seconds">Tempo restante: {{seconds}} Segundos</p>
+    <table class="table align-middle table-dark table-bordered ">
         <tbody>
-            <tr >
-                <td [ngClass]="{'text-sucess':marcaTabuleiro[0][0]}"  (click)="jogar(0, 0)">{{tabuleiro[0][0]}}</td>
+            <tr>
+                <td [ngClass]="{'text-sucess':marcaTabuleiro[0][0]}" (click)="jogar(0, 0)">{{tabuleiro[0][0]}}</td>
                 <td [ngClass]="{'text-sucess':marcaTabuleiro[0][1]}" (click)="jogar(0, 1)">{{tabuleiro[0][1]}}</td>
                 <td [ngClass]="{'text-sucess':marcaTabuleiro[0][2]}" (click)="jogar(0, 2)">{{tabuleiro[0][2]}}</td>
             </tr>
@@ -23,5 +23,4 @@
     </table>
     <p id=resultado>{{resultado}}</p>
     <button (click)="clear()">Novo Jogo</button>
-    
 </div>

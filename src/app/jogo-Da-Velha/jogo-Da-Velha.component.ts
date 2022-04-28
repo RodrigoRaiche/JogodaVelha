@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { timer } from 'rxjs';
 
 @Component({
   selector: 'app-jogo-Da-Velha',
@@ -23,20 +24,36 @@ export class JogoDaVelhaComponent implements OnInit {
   public jogadorAtual: string = ''
   static inicializarTabuleiro: any;
 
+  _second = 1000;
+  _minute = this._second * 60;
+  end: any;
+  now: any;
+  minutes: any;
+  seconds: any;
+  source = timer(0, 1000);
+  clock: any;
+
   constructor() { }
 
-  receberSecond(valor:string){
-    console.log(valor)
-    if (valor === '0'){
-      this.inicializarTabuleiro();  
+  receberSecond(valor: string) {
+    if (valor === '0') {
+      this.inicializarTabuleiro();
     }
-     
+
   }
 
   ngOnInit(): void {
-
+    this.obtersecond();
     this.inicializarTabuleiro();
   }
+
+  ngDoCheck() {
+    console.log(this.seconds)
+    if (this.seconds === 0) {
+      this.inicializarTabuleiro();
+    }
+  }
+
 
 
   public jogar(x: number, y: number) {
@@ -188,5 +205,19 @@ export class JogoDaVelhaComponent implements OnInit {
     }
   }
 
+  private obtersecond() {
+
+    this.clock = this.source.subscribe(t => {
+      this.now = new Date();
+      this.end = new Date('01/01/' + (this.now.getFullYear() + 1) + ' 00:00');
+      this.showSecond();
+    });
+  }
+
+  showSecond() {
+    let distance = this.end - this.now;
+    this.seconds = Math.floor((distance % this._minute) / this._second);
+
+  }
 
 }
