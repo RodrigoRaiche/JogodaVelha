@@ -1,6 +1,7 @@
 <div class="shadow-lg p-3 mb-5 bg-success p-2 text-white bg-opacity-75 rounded">
     <h2>Jogo da velha</h2>
     <p>Jogador atual: {{jogadorAtual}}</p>
+    <app-timer (secondsSaida)="receberSecond($event)"></app-timer>
     <table  class="table align-middle table-dark table-bordered ">
         <tbody>
             <tr >
@@ -22,4 +23,5 @@
     </table>
     <p id=resultado>{{resultado}}</p>
     <button (click)="clear()">Novo Jogo</button>
+    
 </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-jogo-Da-Velha',
@@ -21,8 +21,17 @@ export class JogoDaVelhaComponent implements OnInit {
   public tabuleiro: any;
   public resultado: string = '';
   public jogadorAtual: string = ''
+  static inicializarTabuleiro: any;
 
   constructor() { }
+
+  receberSecond(valor:string){
+    console.log(valor)
+    if (valor === '0'){
+      this.inicializarTabuleiro();  
+    }
+     
+  }
 
   ngOnInit(): void {
 
@@ -40,11 +49,6 @@ export class JogoDaVelhaComponent implements OnInit {
       }
       else {
         this.verificaGanhador();
-        console.log('ganhador=' + this.ganhador)
-        console.log('this.qtdjogadas=' + this.qtdjogadas)
-        console.log('this.tabuleiro[0]=' + this.tabuleiro[0])
-        console.log('this.tabuleiro[1]=' + this.tabuleiro[1])
-        console.log('this.tabuleiro[2]=' + this.tabuleiro[2])
         if (this.ganhador === true && this.qtdjogadas > 1) {
           this.finalizaJogo = true;
           this.resultado = 'O vencedor foi o jogador ' + this.jogadorAtual
@@ -183,7 +187,6 @@ export class JogoDaVelhaComponent implements OnInit {
       }
     }
   }
-
 
 
 }
